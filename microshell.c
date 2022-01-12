@@ -180,6 +180,5 @@ int main(int ac, char** av, char** env)
             it = it->pipe;
     }
     free_cmds(cmds);
-
     return (0);
 }
