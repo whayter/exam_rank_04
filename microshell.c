@@ -11,8 +11,6 @@ typedef struct s_cmd {
     struct s_cmd* next;
 } t_cmd;
 
-/* FT */
-
 int ft_strlen(char* s)
 {
     int len = 0;
@@ -30,8 +28,6 @@ char* ft_strdup(char* s)
     res[i] = '\0';
     return (res);
 }
-
-/* ERROR */
 
 void free_cmds(t_cmd* cmds)
 {
@@ -66,8 +62,6 @@ void fatal_error(t_cmd* cmds)
     error("fatal", NULL);
     exit(EXIT_FAILURE);
 }
-
-/* PARSING */
 
 static int count_args(char** args)
 {
@@ -119,10 +113,8 @@ t_cmd* parse_input(int n, char** args)
             it = it->next;
         }
     }
-    return cmds;
+    return (cmds);
 }
-
-/* EXECUTION */
 
 void builtin_cd(t_cmd* cmd)
 {
@@ -172,9 +164,6 @@ int exec_command(t_cmd* cmd, char** env)
     close(in);
     return (0);
 }
-
-/* MAIN */
-#include <stdio.h>
 
 int main(int ac, char** av, char** env)
 {
